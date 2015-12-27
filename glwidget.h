@@ -14,6 +14,7 @@ private:
 public:
     explicit glWidget(QWidget *parent = 0);
     bool draw;
+    bool drawGLline;
     int x1,y1,x2,y2;
 
 protected:

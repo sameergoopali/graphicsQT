@@ -8,6 +8,7 @@ glWidget::glWidget(QWidget *parent) :QGLWidget(parent)
 }
 void glWidget::initializeGL(){
     draw=false;
+    drawGLline=false;
     glClearColor(1.0f,0.0f,0.0f,1.0f);
 }
 void glWidget::resizeGL(int width, int height){
@@ -23,19 +24,17 @@ void glWidget::paintGL(){
 
 
     drawLine();
-    glLineWidth(2.5);
-    glColor3f(0.0f,0.0f,1.0f);
-    glBegin(GL_LINES);
-    glVertex2f(x1,y1);
-    glVertex2f(x2,y2);
-    glEnd();
 
-//    glBegin(GL_TRIANGLES);
-//    glVertex2f(0.0f,0.0f);
-//    glVertex2f(640.0f,.0f);
-//    glVertex2f(20.0f,150.0f);
-//    glEnd();
 
+
+    }
+    if(drawGLline){
+        glLineWidth(2.5);
+        glColor3f(0.0f,0.0f,1.0f);
+        glBegin(GL_LINES);
+        glVertex2f(x1,y1);
+        glVertex2f(x2,y2);
+        glEnd();
     }
 
 }
